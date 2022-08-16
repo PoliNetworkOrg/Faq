@@ -1,0 +1,68 @@
+#faqIdMain {
+	width: 100%;
+}
+
+.title {
+	font-size: xx-large;
+}
+
+.questions {
+	padding-bottom: calc(5px + 1vw);
+	margin: 10px;
+}
+
+.question {
+	border: 1px solid rgba(0, 0, 0, 0.12467);
+	border-radius: 10px;
+	margin: 1px;
+	padding: 10px;
+	background-color: rgba(13, 255, 0, 0.01245);
+}
+
+.questionText {
+	font-size: x-large;
+	text-align: justify;
+}
+
+.answer {
+	font-size: large;
+	text-align: justify;
+}
+
+.dateAdded {
+	font-size: xx-small;
+	text-align: right;
+	color: rgba(255, 255, 255, 0.493);
+}
+
+.searchTitle {
+	color: white;
+	font-size: large;
+}
+
+#searchBarMain {
+	border-radius: calc(30px + 2vw);
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+body {
+	background-color: black;
+}
+
+#footer {
+	clear: both;
+	border: 1px groove #aaaaaa13;
+	background: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	padding-top: 5px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: normal;
+	margin: 0;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
