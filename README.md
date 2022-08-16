@@ -1,1 +1,3 @@
-# faq_polinetwork
+# FAQ PoliNetwork
+
+https://polinetworkorg.github.io/Faq/
