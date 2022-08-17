@@ -1,8 +1,40 @@
+function printPrettyDate(date) {
+	var dateSplitted = date.split("T");
+	var dateSplitted2 = dateSplitted[0].split("-");
+	var dateSplitted3 = dateSplitted[1].split(":");
+	var year = parseInt(dateSplitted2[0]);
+	var month = parseInt(dateSplitted2[1]);
+	var day = parseInt(dateSplitted2[2]);
+	var hour = parseInt(dateSplitted3[0]);
+	var minute = parseInt(dateSplitted3[1]);
+	var second = parseInt(dateSplitted3[2]);
+
+	var dateTime = new Date(year, month, day, hour, minute, second);
+	var now = Date.now();
+	var diffMilliseconds = Math.abs(now - dateTime);
+	var diffYear = diffMilliseconds / (1000 * 60 * 60 * 24 * 365);
+	if (diffYear >= 1)
+		return month + "/" + year;
+
+	var diffMonth = diffMilliseconds / (1000 * 60 * 60 * 24 * 365 / 12);
+	if (diffMonth >= 1)
+		return day + "/" + month + "/" + year;
+
+	var diffDay = diffMilliseconds / (1000 * 60 * 60 * 24);
+	if (diffDay >= 1)
+		return day + "/" + month + "/" + year + " " + String(hour).padEnd(2, '0') + ":" + String(minute).padEnd(2, '0');
+
+	return day + "/" + month + "/" + year + " " + String(hour).padEnd(2, '0') + ":" + String(minute).padEnd(2, '0') + ":" + String(second).padEnd(2, '0');
+}
+
 function getHtmlQuestion(question) {
 	var q = question["q"];
 	var html = "<div class='question'>";
 	html += "<div class='dateAdded'>";
-	html += question["addedDate"];
+	html += "addedDate " + printPrettyDate(question["addedDate"]);
+	html += "</div>";
+	html += "<div class='dateAdded'>";
+	html += "lastEdited " + printPrettyDate(question["lastEdited"]);
 	html += "</div>";
 	html += "<div class='questionText'>";
 	html += q;
@@ -39,8 +71,7 @@ function getHtml(element) {
 
 var loadedJson = "";
 
-function filterQuestion(question, filterString) {
-
+function filterQuestionString(question, filterString) {
 	if (filterString) {
 		var q = question["q"].toUpperCase();
 		filterString = filterString.toUpperCase().trim();
@@ -69,18 +100,47 @@ function filterQuestion(question, filterString) {
 	return true;
 }
 
-function filterQuestions(questions, filterString) {
+function filterQuestionId(question, filterId) {
+	if (filterId) {
+		var id = question["id"];
+		if (id == filterId)
+			return true;
+		return false;
+	}
+	return true;
+}
+
+function filterQuestion(question, filterString, filterId) {
+
+	if (filterString && filterId) {
+		var resultFilterString = filterQuestionString(question, filterString);
+		var resultFilterId = filterQuestionId(question, filterId);
+		return resultFilterString && resultFilterId;
+	}
+
+	if (filterString) {
+		return filterQuestionString(question, filterString);
+	}
+
+	if (filterId) {
+		return filterQuestionId(question, filterId);
+	}
+
+	return true;
+}
+
+function filterQuestions(questions, filterString, filterId) {
 	var resultQuestions = [];
 	questions.forEach((element) => {
-		var element2 = filterQuestion(element, filterString);
+		var element2 = filterQuestion(element, filterString, filterId);
 		if (element2)
 			resultQuestions.push(element);
 	});
 	return resultQuestions;
 }
 
-function filterCategory(element, filterString) {
-	var questionsResult = filterQuestions(element["questions"], filterString);
+function filterCategory(element, filterString, filterId) {
+	var questionsResult = filterQuestions(element["questions"], filterString, filterId);
 	if (questionsResult && questionsResult.length > 0) {
 		element["question"] = questionsResult;
 		return element;
@@ -88,21 +148,21 @@ function filterCategory(element, filterString) {
 	return null;
 }
 
-function filterList(loadedJson, filterString) {
+function filterList(loadedJson, filterString, filterId) {
 	var result = [];
 	loadedJson.forEach((element) => {
-		var element2 = filterCategory(element, filterString);
+		var element2 = filterCategory(element, filterString, filterId);
 		if (element2)
 			result.push(element2);
 	});
 	return result;
 }
 
-function refreshFaq(filterString) {
+function refreshFaq(filterString, filterId) {
 	var docMain = document.getElementById("faqIdMain");
 	var htmlResult = "";
 
-	var filtered = filterList(loadedJson, filterString);
+	var filtered = filterList(loadedJson, filterString, filterId);
 
 	if (filtered && filtered.length > 0) {
 		filtered.forEach((element) => {
@@ -121,23 +181,33 @@ document.addEventListener("DOMContentLoaded", function () {
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const q = urlParams.get('q');
+	const id = urlParams.get('id');
+
+	var docSearchContainer = document.getElementById("searchBar");
+	var docSearch = document.getElementById("searchBarMain");
+
+	if (id) {
+		docSearchContainer.style.display = "none";
+	}
+	else {
+		docSearch.addEventListener('input', function (e) {
+			var value = e.target.value;
+			//console.log(value);
+			refreshFaq(value, id);
+		});
+	}
+
 
 	$.getJSON(urlJson, function (dataFromJson) {
 		loadedJson = dataFromJson;
-		refreshFaq(q);
+		refreshFaq(q, id);
 
 	});
-
-	var docSearch = document.getElementById("searchBarMain");
 
 	if (q) {
 		docSearch.value = q;
 	}
 
-	docSearch.addEventListener('input', function (e) {
-		var value = e.target.value;
-		//console.log(value);
-		refreshFaq(value);
-	});
+
 
 });

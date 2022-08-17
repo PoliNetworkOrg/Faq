@@ -3,9 +3,9 @@
 		"title": "Piano di studi",
 		"questions": [
 			{
-				"id" : 1,
+				"id": 1,
 				"addedDate": "2022-08-16T21:00:00",
-				"lastEdited": "2022-08-1621:00:00",
+				"lastEdited": "2022-08-16T21:00:00",
 				"q": "Ma il piano di studi il primo anno lo devo compilare io?",
 				"a": "No."
 			}
@@ -13,11 +13,11 @@
 	},
 	{
 		"title": "Tasse",
-		"questions":[
+		"questions": [
 			{
 				"id": 1,
 				"addedDate": "2022-08-16T21:00:00",
-				"lastEdited": "2022-08-1621:00:00",
+				"lastEdited": "2022-08-16T21:00:00",
 				"q": "C'è uno sconto sulle tasse se faccio 100 alla maturità?",
 				"a": "No."
 			}
