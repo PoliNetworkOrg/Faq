@@ -1,3 +1,13 @@
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const q = urlParams.get('q');
+const id = urlParams.get('id');
+var lang = urlParams.get('lang')
+if (!lang) {
+	lang = 'it';
+}
+
 function printPrettyDate(date) {
 	var dateSplitted = date.split("T");
 	var dateSplitted2 = dateSplitted[0].split("-");
@@ -27,7 +37,7 @@ function printPrettyDate(date) {
 	return day + "/" + month + "/" + year + " " + String(hour).padEnd(2, '0') + ":" + String(minute).padEnd(2, '0') + ":" + String(second).padEnd(2, '0');
 }
 
-function getValueLang(dict, lang) {
+function getValueLang(dict) {
 	var s = dict[lang];
 	if (s)
 		return s;
@@ -44,8 +54,20 @@ function getValueLang(dict, lang) {
 	return "[text not present]";
 }
 
-function getHtmlQuestion(question, lang) {
-	var q = getValueLang(question["q"], lang);
+function fixedEncodeURIComponent(str) {
+	return encodeURIComponent(str).replace(/[!'()*]/g, escape);
+}
+
+function getShareLink(question) {
+	var origin = window.location.origin;
+	var q2 = getValueLang(question["q"]);
+	var q3 = fixedEncodeURIComponent(q2);
+	var parameters = "?id=" + question["id"] + "&lang=" + lang + "&q=" + q3;
+	return origin + "/" + parameters;
+}
+
+function getHtmlQuestion(question) {
+	var q = getValueLang(question["q"]);
 	var html = "<div class='question'>";
 	html += "<div class='dateAdded'>";
 	html += "addedDate " + printPrettyDate(question["addedDate"]);
@@ -58,28 +80,34 @@ function getHtmlQuestion(question, lang) {
 	html += "</div>";
 
 	html += "<div class='answer'>";
-	html += getValueLang(question["a"], lang);
+	html += getValueLang(question["a"]);
 	html += "</div>";
+
+	html += "<div class='shareAnswer'>";
+	var link = getShareLink(question);
+	html += "<a class='shareAnswer' href='" + link + "'>share this</a>";
+	html += "</div>";
+
 	html += "</div>";
 	return html;
 }
 
-function getHtmlQuestions(questions, lang) {
+function getHtmlQuestions(questions) {
 	var result = "";
 	questions.forEach((question) => {
-		result += getHtmlQuestion(question, lang);
+		result += getHtmlQuestion(question);
 	});
 	return result;
 }
 
-function getHtml(element, lang) {
+function getHtml(element) {
 	var html = "<div>";
 	html += "<div class='title'>";
-	html += getValueLang(element["title"], lang);
+	html += getValueLang(element["title"]);
 	html += "</div>";
 
 	html += "<div class='questions'>";
-	html += getHtmlQuestions(element["questions"], lang);
+	html += getHtmlQuestions(element["questions"]);
 	html += "</div>";
 
 	html += "</div>";
@@ -88,7 +116,7 @@ function getHtml(element, lang) {
 
 var loadedJson = "";
 
-function filterQuestionString(question, filterString, lang) {
+function filterQuestionString(question, filterString) {
 	if (filterString) {
 		var q = question["q"][lang].toUpperCase();
 		filterString = filterString.toUpperCase().trim();
@@ -127,16 +155,16 @@ function filterQuestionId(question, filterId) {
 	return true;
 }
 
-function filterQuestion(question, filterString, filterId, lang) {
+function filterQuestion(question, filterString, filterId) {
 
 	if (filterString && filterId) {
-		var resultFilterString = filterQuestionString(question, filterString, lang);
+		var resultFilterString = filterQuestionString(question, filterString);
 		var resultFilterId = filterQuestionId(question, filterId);
 		return resultFilterString && resultFilterId;
 	}
 
 	if (filterString) {
-		return filterQuestionString(question, filterString, lang);
+		return filterQuestionString(question, filterString);
 	}
 
 	if (filterId) {
@@ -146,18 +174,18 @@ function filterQuestion(question, filterString, filterId, lang) {
 	return true;
 }
 
-function filterQuestions(questions, filterString, filterId, lang) {
+function filterQuestions(questions, filterString, filterId) {
 	var resultQuestions = [];
 	questions.forEach((element) => {
-		var element2 = filterQuestion(element, filterString, filterId, lang);
+		var element2 = filterQuestion(element, filterString, filterId);
 		if (element2)
 			resultQuestions.push(element);
 	});
 	return resultQuestions;
 }
 
-function filterCategory(element, filterString, filterId, lang) {
-	var questionsResult = filterQuestions(element["questions"], filterString, filterId, lang);
+function filterCategory(element, filterString, filterId) {
+	var questionsResult = filterQuestions(element["questions"], filterString, filterId);
 	if (questionsResult && questionsResult.length > 0) {
 		element["question"] = questionsResult;
 		return element;
@@ -165,25 +193,25 @@ function filterCategory(element, filterString, filterId, lang) {
 	return null;
 }
 
-function filterList(loadedJson, filterString, filterId, lang) {
+function filterList(loadedJson, filterString, filterId) {
 	var result = [];
 	loadedJson.forEach((element) => {
-		var element2 = filterCategory(element, filterString, filterId, lang);
+		var element2 = filterCategory(element, filterString, filterId);
 		if (element2)
 			result.push(element2);
 	});
 	return result;
 }
 
-function refreshFaq(filterString, filterId, lang) {
+function refreshFaq(filterString, filterId) {
 	var docMain = document.getElementById("faqIdMain");
 	var htmlResult = "";
 
-	var filtered = filterList(loadedJson, filterString, filterId, lang);
+	var filtered = filterList(loadedJson, filterString, filterId);
 
 	if (filtered && filtered.length > 0) {
 		filtered.forEach((element) => {
-			var html = getHtml(element, lang);
+			var html = getHtml(element);
 			htmlResult += html;
 		});
 		docMain.innerHTML = htmlResult;
@@ -195,14 +223,7 @@ function refreshFaq(filterString, filterId, lang) {
 
 document.addEventListener("DOMContentLoaded", function () {
 	var urlJson = "./assets/faq.json";
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	const q = urlParams.get('q');
-	const id = urlParams.get('id');
-	var lang = urlParams.get('lang')
-	if (!lang) {
-		lang = 'it';
-	}
+
 
 	var docSearchContainer = document.getElementById("searchBar");
 	var docSearch = document.getElementById("searchBarMain");
@@ -214,14 +235,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		docSearch.addEventListener('input', function (e) {
 			var value = e.target.value;
 			//console.log(value);
-			refreshFaq(value, id, lang);
+			refreshFaq(value, id);
 		});
 	}
 
 
 	$.getJSON(urlJson, function (dataFromJson) {
 		loadedJson = dataFromJson;
-		refreshFaq(q, id, lang);
+		refreshFaq(q, id);
 
 	});
 
