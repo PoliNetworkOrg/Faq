@@ -1,25 +1,37 @@
 [
 	{
-		"title": "Piano di studi",
+		"title": {
+			"it": "Piano di studi"
+		},
 		"questions": [
 			{
 				"id": 1,
 				"addedDate": "2022-08-16T21:00:00",
 				"lastEdited": "2022-08-16T21:00:00",
-				"q": "Ma il piano di studi il primo anno lo devo compilare io?",
-				"a": "No."
+				"q": {
+					"it": "Ma il piano di studi il primo anno lo devo compilare io?"
+				},
+				"a": {
+					"it": "No."
+				}
 			}
 		]
 	},
 	{
-		"title": "Tasse",
+		"title": {
+			"it": "Tasse"
+		},
 		"questions": [
 			{
 				"id": 1,
 				"addedDate": "2022-08-16T21:00:00",
 				"lastEdited": "2022-08-16T21:00:00",
-				"q": "C'è uno sconto sulle tasse se faccio 100 alla maturità?",
-				"a": "No."
+				"q": {
+					"it": "C'è uno sconto sulle tasse se faccio 100 alla maturità?"
+				},
+				"a": {
+					"it": "No."
+				}
 			}
 		]
 	}
