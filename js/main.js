@@ -7,6 +7,7 @@ var lang = urlParams.get('lang')
 if (!lang) {
 	lang = 'it';
 }
+var origin = window.location.origin;
 
 function printPrettyDate(date) {
 	var dateSplitted = date.split("T");
@@ -59,7 +60,7 @@ function fixedEncodeURIComponent(str) {
 }
 
 function getShareLink(question) {
-	var origin = window.location.origin;
+
 	var q2 = getValueLang(question["q"]);
 	var q3 = fixedEncodeURIComponent(q2);
 	var parameters = "?id=" + question["id"] + "&lang=" + lang + "&q=" + q3;
@@ -70,7 +71,7 @@ function getHtmlQuestion(question) {
 	var q = getValueLang(question["q"]);
 	var html = "<div class='question'>";
 	html += "<div class='dateAdded'>";
-	html += "addedDate " + printPrettyDate(question["addedDate"]);
+	html += "added " + printPrettyDate(question["addedDate"]);
 	html += "</div>";
 	html += "<div class='dateAdded'>";
 	html += "lastEdited " + printPrettyDate(question["lastEdited"]);
@@ -217,7 +218,10 @@ function refreshFaq(filterString, filterId) {
 		docMain.innerHTML = htmlResult;
 	}
 	else {
-		docMain.innerHTML = "Nessun risultato.";
+		var html = "<div><p>Nessun risultato</p>";
+		html += "<p><a href='" + origin + "'>Torna indietro</a></p>";
+		html += "</div>";
+		docMain.innerHTML = html;
 	}
 }
 
