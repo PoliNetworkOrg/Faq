@@ -3,7 +3,8 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const q = urlParams.get('q');
 const id = urlParams.get('id');
-var lang = urlParams.get('lang')
+var lang = urlParams.get('lang');
+var catId = urlParams.get('cat');
 if (!lang) {
 	lang = 'it';
 }
@@ -59,15 +60,12 @@ function fixedEncodeURIComponent(str) {
 	return encodeURIComponent(str).replace(/[!'()*]/g, escape);
 }
 
-function getShareLink(question) {
-
-	var q2 = getValueLang(question["q"]);
-	var q3 = fixedEncodeURIComponent(q2);
-	var parameters = "?id=" + question["id"] + "&lang=" + lang + "&q=" + q3;
+function getShareLink(question, catIdParam) {
+	var parameters = "?id=" + question["id"] + "&lang=" + lang + "&cat=" + catIdParam;
 	return origin + "/" + parameters;
 }
 
-function getHtmlQuestion(question) {
+function getHtmlQuestion(question, catIdParam) {
 	var q = getValueLang(question["q"]);
 	var html = "<div class='question'>";
 	html += "<div class='dateAdded'>";
@@ -85,7 +83,7 @@ function getHtmlQuestion(question) {
 	html += "</div>";
 
 	html += "<div class='shareAnswer'>";
-	var link = getShareLink(question);
+	var link = getShareLink(question, catIdParam);
 	html += "<a class='shareAnswer' href='" + link + "'>share this</a>";
 	html += "</div>";
 
@@ -93,10 +91,10 @@ function getHtmlQuestion(question) {
 	return html;
 }
 
-function getHtmlQuestions(questions) {
+function getHtmlQuestions(questions, catIdParam) {
 	var result = "";
 	questions.forEach((question) => {
-		result += getHtmlQuestion(question);
+		result += getHtmlQuestion(question, catIdParam);
 	});
 	return result;
 }
@@ -108,7 +106,7 @@ function getHtml(element) {
 	html += "</div>";
 
 	html += "<div class='questions'>";
-	html += getHtmlQuestions(element["questions"]);
+	html += getHtmlQuestions(element["questions"], element["id"]);
 	html += "</div>";
 
 	html += "</div>";
@@ -186,6 +184,15 @@ function filterQuestions(questions, filterString, filterId) {
 }
 
 function filterCategory(element, filterString, filterId) {
+	var idCatElement = element["id"];
+	if (catId)
+	{
+		if (idCatElement)
+		{
+			if (catId != idCatElement)
+				return null;
+		}
+	}
 	var questionsResult = filterQuestions(element["questions"], filterString, filterId);
 	if (questionsResult && questionsResult.length > 0) {
 		element["question"] = questionsResult;

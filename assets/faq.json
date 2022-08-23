@@ -3,6 +3,7 @@
 		"title": {
 			"it": "Piano di studi"
 		},
+		"id" : 1,
 		"questions": [
 			{
 				"id": 1,
@@ -21,6 +22,7 @@
 		"title": {
 			"it": "Tasse"
 		},
+		"id" : 2,
 		"questions": [
 			{
 				"id": 1,
@@ -31,6 +33,25 @@
 				},
 				"a": {
 					"it": "No."
+				}
+			}
+		]
+	},
+	{
+		"title": {
+			"it": "Lezioni"
+		},
+		"id" : 3,
+		"questions": [
+			{
+				"id": 1,
+				"addedDate": "2022-08-23T21:00:00",
+				"lastEdited": "2022-08-23T21:00:00",
+				"q": {
+					"it": "Si sa qualcosa delle lezioni online (streaming) e delle registrazioni?"
+				},
+				"a": {
+					"it": "La direttiva dell'ateneo è che non verrà garantito lo streaming (di fatto non ci sarà se non per situazioni particolari o esigenze specifiche di qualche corso di studi) mentre le registrazioni sono \"fortemente consigliate\" (rimangono non obbligatorie).<br />In generale spetta ai singoli CS valutare in quali momenti si ritiene opportuno attivare lo streaming e anche la gestione delle registrazioni.<br />(I singoli CS non hanno il potere di stravolgere quelle che sono le indicazioni date dall'ateneo, il loro ruolo si limita a garantire uniformità all'interno del corso e rispetto ad altri CS)<br />Comunque su instagram le varie liste di rappresentanza hanno pubblicato post a riguardo"
 				}
 			}
 		]
