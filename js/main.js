@@ -22,17 +22,22 @@ function printPrettyDate(date) {
 	var second = parseInt(dateSplitted3[2]);
 
 	var dateTime = new Date(year, month, day, hour, minute, second);
-	var now = Date.now();
-	var diffMilliseconds = Math.abs(now - dateTime);
-	var diffYear = diffMilliseconds / (1000 * 60 * 60 * 24 * 365);
-	if (diffYear >= 1)
-		return month + "/" + year;
-
-	var diffMonth = diffMilliseconds / (1000 * 60 * 60 * 24 * 365 / 12);
-	if (diffMonth >= 1)
-		return day + "/" + month + "/" + year;
+	var now = Date.now().valueOf() ;
+	var dateTimeMilliseconds = dateTime.valueOf();
+	var diffDate = now - dateTimeMilliseconds;
+	var diffMilliseconds = Math.abs(diffDate);
 
 	var diffDay = diffMilliseconds / (1000 * 60 * 60 * 24);
+	diffDay /= 3;
+
+	if (diffDay >= 365)
+		return month + "/" + year;
+
+
+	if (diffDay >= 7)
+		return day + "/" + month + "/" + year;
+
+
 	if (diffDay >= 1)
 		return day + "/" + month + "/" + year + " " + String(hour).padEnd(2, '0') + ":" + String(minute).padEnd(2, '0');
 
