@@ -15,7 +15,19 @@
 				"a": {
 					"it": "No."
 				}
+			},
+			{
+				"id": 2,
+				"addedDate": "2022-08-23T21:00:00",
+				"lastEdited": "2022-08-23T21:00:00",
+				"q": {
+					"it": "Quando scade la presentazione del piano di studi?"
+				},
+				"a": {
+					"it": "Scadenziario del polimi: <a href='https://scadenziario.polimi.it/index.php?id=5&L=0'>link</a>"
+				}
 			}
+			
 		]
 	},
 	{
@@ -51,7 +63,7 @@
 					"it": "Si sa qualcosa delle lezioni online (streaming) e delle registrazioni?"
 				},
 				"a": {
-					"it": "La direttiva dell'ateneo è che non verrà garantito lo streaming (di fatto non ci sarà se non per situazioni particolari o esigenze specifiche di qualche corso di studi) mentre le registrazioni sono \"fortemente consigliate\" (rimangono non obbligatorie).<br />In generale spetta ai singoli CS valutare in quali momenti si ritiene opportuno attivare lo streaming e anche la gestione delle registrazioni.<br />(I singoli CS non hanno il potere di stravolgere quelle che sono le indicazioni date dall'ateneo, il loro ruolo si limita a garantire uniformità all'interno del corso e rispetto ad altri CS)<br />Comunque su instagram le varie liste di rappresentanza hanno pubblicato post a riguardo"
+					"it": "La direttiva dell'ateneo è che non verrà garantito lo streaming (di fatto non ci sarà se non per situazioni particolari o esigenze specifiche di qualche corso di studi) mentre le registrazioni sono \"fortemente consigliate\" (rimangono non obbligatorie).<br />In generale spetta ai singoli CS (Corsi di Studio) valutare in quali momenti si ritiene opportuno attivare lo streaming e anche la gestione delle registrazioni.<br />(I singoli CS non hanno il potere di stravolgere quelle che sono le indicazioni date dall'ateneo, il loro ruolo si limita a garantire uniformità all'interno del corso e rispetto ad altri CS)<br />Comunque su instagram le varie liste di rappresentanza hanno pubblicato post a riguardo"
 				}
 			}
 		]

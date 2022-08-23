@@ -116,6 +116,10 @@ function getHtml(element) {
 var loadedJson = "";
 
 function filterQuestionString(question, filterString) {
+
+	if (filterString == "")
+		return true;
+
 	if (filterString) {
 		var q = question["q"][lang].toUpperCase();
 		filterString = filterString.toUpperCase().trim();
@@ -195,8 +199,9 @@ function filterCategory(element, filterString, filterId) {
 	}
 	var questionsResult = filterQuestions(element["questions"], filterString, filterId);
 	if (questionsResult && questionsResult.length > 0) {
-		element["question"] = questionsResult;
-		return element;
+		result = JSON.parse(JSON.stringify(element));
+		result["questions"] = questionsResult;
+		return result;
 	}
 	return null;
 }
