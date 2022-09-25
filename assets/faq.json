@@ -57,13 +57,252 @@
 		"questions": [
 			{
 				"id": 1,
-				"addedDate": "2022-08-23T21:00:00",
-				"lastEdited": "2022-08-23T21:00:00",
+				"addedDate": "2022-08-25T21:00:00",
+				"lastEdited": "2022-08-25T21:00:00",
 				"q": {
 					"it": "Si sa qualcosa delle lezioni online (streaming) e delle registrazioni?"
 				},
 				"a": {
 					"it": "La direttiva dell'ateneo è che non verrà garantito lo streaming (di fatto non ci sarà se non per situazioni particolari o esigenze specifiche di qualche corso di studi) mentre le registrazioni sono \"fortemente consigliate\" (rimangono non obbligatorie).<br />In generale spetta ai singoli CS (Corsi di Studio) valutare in quali momenti si ritiene opportuno attivare lo streaming e anche la gestione delle registrazioni.<br />(I singoli CS non hanno il potere di stravolgere quelle che sono le indicazioni date dall'ateneo, il loro ruolo si limita a garantire uniformità all'interno del corso e rispetto ad altri CS)<br />Comunque su instagram le varie liste di rappresentanza hanno pubblicato post a riguardo"
+				}
+			},
+			{
+				"id": 2,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Quali sono i periodi di lezione?"
+				},
+				"a": {
+					"it": "È possibile consultare il calendario accademico sul sito del Politecnico: <a href='https://www.polimi.it/studenti-iscritti/calendario-e-scadenze'>link</a>"
+				}
+			},
+			{
+				"id": 3,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Durante le lezioni serve la mascherina?"
+				},
+				"a": {
+					"it": "Non è obbligatoria la mascherina. Ciò vale anche durante gli esami."
+				}
+			},
+			{
+				"id": 4,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "I primi giorni ci saranno le esercitazioni?"
+				},
+				"a": {
+					"it": "Spesso, la prima settimana, i Professori utilizzano le ore destinate alle esercitazioni per qualche ora di lezione in più: saranno quindi i docenti a specificare come verranno utilizzate queste ore. Dunque, le esercitazioni non sono da considerarsi annullate, salvo diversa comunicazione da parte del docente o dell’esercitatore."
+				}
+			},
+			{
+				"id": 5,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Dove posso vedere il mio orario?"
+				},
+				"a": {
+					"it": "L’orario è consultabile sui servizi online, selezionando “Orario delle lezioni”. Altrimenti, è possibile generarlo dai manifesti degli studi: <a href='https://www4.ceda.polimi.it/manifesti/manifesti/controller/ManifestoPublic.do?evn_gointrocarrello=evento&aa=2022&k_cf=222&k_corso_la=497&ac_ins=0&k_indir=%2A%2A%2A&lang=IT&tipoCorso=ALL_TIPO_CORSO&semestre=ALL_SEMESTRI&jaf_currentWFID=main'>link</a>"
+				}
+			},
+			{
+				"id": 6,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Per le lauree le lezioni sono sospese?"
+				},
+				"a": {
+					"it": "Non tutti i giorni: dunque, i Professori vi informeranno nel caso in cui una delle loro lezioni non dovesse tenersi.<br />Infatti, generalmente, in occasione delle lauree triennali, le lezioni sono sospese fino alle ore 15; nelle fasce orarie successive la sospensione è a discrezione dei singoli docenti. In occasione delle lauree magistrali, le lezioni sono solitamente sospese per l'intera giornata.<br />Si consiglia inoltre di prestare attenzione al distinguere le date di laurea nei campus milanesi e nei poli territoriali."
+				}
+			},
+			{
+				"id": 7,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Ho due lezioni sovrapposte, come posso fare?"
+				},
+				"a": {
+					"it": "Purtroppo può capitare di avere lezioni sovrapposte. Sta allo studente trovare il modo migliore di organizzarsi."
+				}
+			},
+			{
+				"id": 8,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "La frequenza è obbligatoria?"
+				},
+				"a": {
+					"it": "Nei corsi di laurea delle Scuole di Architettura e di Design, i laboratori hanno frequenza obbligatoria (sono consentite assenze ingiustificate pari a massimo il 25% del monte ore del laboratorio). Per trovare maggiori informazioni, è possibile consultare il regolamento accademico del corso di studi, presente sul sito della Scuola che eroga il corso di laurea in questione."
+				}
+			},
+			{
+				"id": 9,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Dove posso trovare le registrazioni delle lezioni?"
+				},
+				"a": {
+					"it": "Il materiale didattico messo a disposizione dai docenti e le registrazioni possono essere consultati sul sito WeBeep."
+				}
+			}
+		]
+	},
+	{
+		"title": {
+			"it": "Esami"
+		},
+		"id" : 4,
+		"questions": [
+			{
+				"id": 1,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Quando iniziano gli esami? E quando sono le prove in itinere?"
+				},
+				"a": {
+					"it": "Puoi consultare i periodi di sessione e delle prove in itinere sul calendario accademico: <a href='https://www.polimi.it/studenti-iscritti/calendario-e-scadenze'>link</a>"
+				}
+			},
+			{
+				"id": 2,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Gli esami saranno in presenza?"
+				},
+				"a": {
+					"it": "Gli esami saranno in presenza, salvo diverse comunicazioni da parte dei docenti."
+				}
+			},
+			{
+				"id": 3,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Durante gli esami serve la mascherina?"
+				},
+				"a": {
+					"it": "Sono valide le medesime regole relative alle lezioni: la mascherina non è obbligatoria."
+				}
+			},
+			{
+				"id": 4,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Come si fa a prendere la lode in un esame?"
+				},
+				"a": {
+					"it": "Nella maggior parte dei casi, gli esami sono valutati in trentunesimi: se si totalizzerà un punteggio pari a 31, si conseguirà la lode. In alcuni casi, i docenti possono richiedere una prova orale integrativa per confermare la valutazione."
+				}
+			},
+			{
+				"id": 5,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Gli esami sono uguali per tutti gli scaglioni?"
+				},
+				"a": {
+					"it": "Generalmente, l’Ateneo cerca di uniformare le prove di valutazione di un determinato esame per tutti gli scaglioni. Ciò non toglie che i docenti abbiano la facoltà di assegnare prove d’esame differenti, ritenute maggiormente adatte ai fini della valutazione, sulla base delle nozioni fornite agli studenti durante le lezioni."
+				}
+			},
+			{
+				"id": 6,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Si possono ridare esami già verbalizzati?"
+				},
+				"a": {
+					"it": "Gli esami già verbalizzati non possono essere in alcun modo sostenuti nuovamente."
+				}
+			},
+			{
+				"id": 7,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Come ci si iscrive agli esami e alle prove in itinere?"
+				},
+				"a": {
+					"it": "Per iscriversi agli esami si acceda ai servizi online, selezionare “Esami” e, successivamente, “Iscrizione agli esami”."
+				}
+			},
+			{
+				"id": 8,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Cosa sono i parziali (prove in itinere)?"
+				},
+				"a": {
+					"it": "Le prove in itinere sono esami relativi solamente ad una parte del programma dell’intero corso."
+				}
+			},
+			{
+				"id": 9,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Entro quando ci si può iscrivere agli esami?"
+				},
+				"a": {
+					"it": "È possibile iscriversi regolarmente ad un determinato appello d’esame fino a due giorni prima dello stesso (l’ultimo giorno utile per iscriversi viene solitamente anticipato al venerdì nel caso in cui ricada nel fine settimana).<br />È comunque possibile presentare una richiesta di iscrizione tardiva a partire dal termine della finestra di iscrizione regolare fino all’orario di inizio della prova: in questo caso, l’ammissione alla prova avverrà previa valutazione da parte del Professore (l'eventuale rifiuto è, pertanto, insindacabile)."
+				}
+			},
+			{
+				"id": 10,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Ci sono esami propedeutici nel mio corso?"
+				},
+				"a": {
+					"it": "Puoi consultare le eventuali precedenze consigliate e obbligate sul regolamento didattico del corso di studi in questione. Puoi trovarlo sul sito della Scuola relativa al tuo corso di studi."
+				}
+			},
+			{
+				"id": 11,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Tutti gli esami hanno i parziali (prove in itinere)?"
+				},
+				"a": {
+					"it": "No, non tutti gli esami prevedono prove in itinere."
+				}
+			},
+			{
+				"id": 12,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Chi può fare le prove in itinere e gli esami?"
+				},
+				"a": {
+					"it": "Si possono sostenere le prove in itinere ed è possibile iscriversi agli appelli d’esame se non si ha OFA Test."
+				}
+			},
+			{
+				"id": 13,
+				"addedDate": "2022-09-25T21:00:00",
+				"lastEdited": "2022-09-25T21:00:00",
+				"q": {
+					"it": "Dove trovo le date degli esami?"
+				},
+				"a": {
+					"it": "Le date degli esami sono consultabili sulla medesima pagina sulla quale è possibile effettuare l’iscrizione agli stessi: si acceda ai servizi online, selezionare “Esami” e, successivamente, “Iscrizione agli esami”.<br />È possibile anche conoscere in anticipo le date degli esami tramite le bozze dei calendari rese disponibili sul sito delle Scuole: queste date possono però variare in caso di imprevisti o sopraggiunta impossibilità dell’organizzare l’esame nella data prevista."
 				}
 			}
 		]
