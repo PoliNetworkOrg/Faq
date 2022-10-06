@@ -7,17 +7,6 @@
 		"questions": [
 			{
 				"id": 1,
-				"addedDate": "2022-08-16T21:00:00",
-				"lastEdited": "2022-08-16T21:00:00",
-				"q": {
-					"it": "Ma il piano di studi il primo anno lo devo compilare io?"
-				},
-				"a": {
-					"it": "No."
-				}
-			},
-			{
-				"id": 2,
 				"addedDate": "2022-08-23T21:00:00",
 				"lastEdited": "2022-08-23T21:00:00",
 				"q": {
@@ -264,7 +253,7 @@
 			{
 				"id": 10,
 				"addedDate": "2022-09-25T21:00:00",
-				"lastEdited": "2022-09-25T21:00:00",
+				"lastEdited": "2022-10-07T21:00:00",
 				"q": {
 					"it": "Ci sono esami propedeutici nel mio corso?"
 				},
